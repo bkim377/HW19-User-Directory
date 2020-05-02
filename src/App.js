@@ -1,27 +1,26 @@
 import React, {Component} from "react";
 import Table from "./components/Table";
 import employees from "./employees.json";
-
+import "./App.css";
 
 class App extends Component {
   // initial setup of conditions
   state = {
     employees, 
-    employeesToShow: [],
-    searchWord: "",
+    searchWord: ""
   };
 
-  // Reach searchWord input
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value,
-    });
-  };
+  // Reach the searchWord input
+  handleChange = (e) => {
+   this.setState({
+     searchWord: e.target.value
+   })
+}
 
   // Filtering employee names with searchWord
   handleSubmit = (event) => {
     event.preventDefault();
+    // takes search bar input and filters the table accordingly
     const employees = this.state.employees.filter((employee) => {
       return employee.name.includes(this.state.searchWord);
     });
@@ -33,6 +32,7 @@ class App extends Component {
   // function to sort table columns when you click on the headers
   sortColumns = (columnName) => {
     const employees = this.state.employees.sort(function (a,b) {
+      // reorders the table rows based on which header you click
       var nameA = a[columnName];
       var nameB = b[columnName];
       if (nameA > nameB) {
@@ -42,29 +42,30 @@ class App extends Component {
         return -1;
       }
     });
-    this.setState({ employees });
+    this.setState({ 
+      employees 
+    });
   }
 
+  // render() the entire web page
   render() {
     return (
       <>
       <div className="container">
-        <div className="row justify-content-end">
+        <div className="page-header">
+          <h1>Employee Tracker</h1>
+        </div>
+        <div className="row row justify-content-end">
           <form onSubmit={this.handleSubmit}>
             <div className="input-group mb-3 searchBar">
               <input 
-              type="text"
-              name="searchWord"
-              value={this.state.searchWord}
-              onChange={this.handleChange}
-              className="form-control"
-              placeholder="Enter Employee name"
+                type="text"
+                name="searchWord"
+                value={this.state.searchWord}
+                onChange={this.handleChange}
+                className="form-control"
+                placeholder="Enter a Name to search"
               />
-              <button 
-              className="btn btn-primary searchBtn" 
-              type="submit">
-                <i class="fa fa-search">
-                </i></button>
             </div>
           </form>
         </div>
