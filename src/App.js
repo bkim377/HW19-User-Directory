@@ -58,6 +58,20 @@ class App extends Component {
       </div>
 
       <table className="table employeeTable">
+        <tr>
+          <th className="tableHeader" onClick={() => this.sorter("id")}>
+            <button className="tableButton">ID #</button>
+          </th>
+          <th className="tableHeader" onClick={() => this.sorter("name")}>
+            <button className="tableButton">Name</button>
+          </th>
+          <th className="tableHeader" onClick={() => this.sorter("email")}>
+            <button className="tableButton">Email</button>
+          </th>
+          <th className="tableHeader" onClick={() => this.sorter("cell")}>
+            <button className="tableButton">Phone Number</button>
+          </th>
+        </tr>
       {this.state.employees.map((employee) => (
         <Table
           id={employee.id}
