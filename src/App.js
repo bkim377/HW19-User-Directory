@@ -34,6 +34,7 @@ class App extends Component {
 
   render() {
     return (
+      <>
       <div className="container">
         <div className="row justify-content-end">
           <form onSubmit={this.handleSubmit}>
@@ -46,15 +47,31 @@ class App extends Component {
               className="form-control"
               placeholder="Enter Employee name"
               />
-              <button type="submit"><i class="fa fa-search"></i></button>
+              <button 
+              className="btn btn-primary searchBtn" 
+              type="submit">
+                <i class="fa fa-search">
+                </i></button>
             </div>
           </form>
         </div>
       </div>
+
+      <table className="table employeeTable">
+      {this.state.employees.map((employee) => (
+        <Table
+          id={employee.id}
+          key={employee.id}
+          name={employee.name}
+          email={employee.email}
+          cell={employee.cell}
+        />
+      ))}
+      </table>
+      </>
     )
   }
 };
-
 
 
 export default App;
