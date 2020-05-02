@@ -30,7 +30,20 @@ class App extends Component {
     });
   };
 
-  
+  // function to sort table columns when you click on the headers
+  sortColumns = (columnName) => {
+    const employees = this.state.employees.sort(function (a,b) {
+      var nameA = a[columnName];
+      var nameB = b[columnName];
+      if (nameA > nameB) {
+        return 1;
+      }
+      if (nameA < nameB) {
+        return -1;
+      }
+    });
+    this.setState({ employees });
+  }
 
   render() {
     return (
@@ -59,16 +72,16 @@ class App extends Component {
 
       <table className="table employeeTable">
         <tr>
-          <th className="tableHeader" onClick={() => this.sorter("id")}>
+          <th className="tableHeader" onClick={() => this.sortColumns("id")}>
             <button className="tableButton">ID #</button>
           </th>
-          <th className="tableHeader" onClick={() => this.sorter("name")}>
+          <th className="tableHeader" onClick={() => this.sortColumns("name")}>
             <button className="tableButton">Name</button>
           </th>
-          <th className="tableHeader" onClick={() => this.sorter("email")}>
+          <th className="tableHeader" onClick={() => this.sortColumns("email")}>
             <button className="tableButton">Email</button>
           </th>
-          <th className="tableHeader" onClick={() => this.sorter("cell")}>
+          <th className="tableHeader" onClick={() => this.sortColumns("cell")}>
             <button className="tableButton">Phone Number</button>
           </th>
         </tr>
