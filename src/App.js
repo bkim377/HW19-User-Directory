@@ -1,7 +1,9 @@
 import React, {Component} from "react";
-import Table from "./components/Table";
+import Jumbotron from "./components/JumbotronHeader.js"
+import Table from "./components/EmployeeTable";
 import employees from "./employees.json";
 import "./App.css";
+import "./components/JumbotronHeader.css";
 
 class App extends Component {
   // initial setup of conditions
@@ -51,10 +53,8 @@ class App extends Component {
   render() {
     return (
       <>
+      <Jumbotron />
       <div className="container">
-        <div className="page-header">
-          <h1>Employee Tracker</h1>
-        </div>
         <div className="row row justify-content-end">
           <form onSubmit={this.handleSubmit}>
             <div className="input-group mb-3 searchBar">
@@ -66,6 +66,7 @@ class App extends Component {
                 className="form-control"
                 placeholder="Enter a Name to search"
               />
+              <button className="searchButton" type="submit">Search</button>
             </div>
           </form>
         </div>
@@ -74,16 +75,16 @@ class App extends Component {
       <table className="table employeeTable">
         <tr>
           <th className="tableHeader" onClick={() => this.sortColumns("id")}>
-            <button className="tableButton">ID #</button>
+            <button className="tableHeaderButton">ID #</button>
           </th>
           <th className="tableHeader" onClick={() => this.sortColumns("name")}>
-            <button className="tableButton">Name</button>
+            <button className="tableHeaderButton">Name</button>
           </th>
           <th className="tableHeader" onClick={() => this.sortColumns("email")}>
-            <button className="tableButton">Email</button>
+            <button className="tableHeaderButton">Email</button>
           </th>
           <th className="tableHeader" onClick={() => this.sortColumns("cell")}>
-            <button className="tableButton">Phone Number</button>
+            <button className="tableHeaderButton">Phone Number</button>
           </th>
         </tr>
       {this.state.employees.map((employee) => (

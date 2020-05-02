@@ -1,0 +1,8 @@
+.jumbotron {
+    background-color: orange;
+    width: 600px;
+}
+
+h1, h4 {
+    text-align: center;
+}
