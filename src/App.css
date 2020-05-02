@@ -1,0 +1,25 @@
+h1, h4 {
+  font-family: "Trebuchet MS"
+}
+
+.searchButton {
+  border: none;
+  font-weight: bold;
+  background-color: blue;
+  color: white;
+}
+
+table {
+  font-family: "Trebuchet MS"
+}
+
+.tableHeaderButton {
+  border: none;
+  font-weight: bold;
+  background-color: green;
+  color: white;
+}
+
+.tableHeader {
+  background-color: green;
+}
