@@ -9,4 +9,4 @@ My submission for the HW19-User-Directory assignment.
 
 **At the start:** ![User Directory screenshot 1](UserDirectory1.png)
 **Clicking a table header:** ![User Directory screenshot 2](UserDirectory2.png)
-**Searching part of a name:** 1[User Directory screenshot 3](UserDirectory3.png)
+**Searching part of a name:** ![User Directory screenshot 3](UserDirectory3.png)
